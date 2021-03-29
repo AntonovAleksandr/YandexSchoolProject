@@ -10,6 +10,8 @@ from properties import WEIGHT,  DEFAULT_COMPLETE_TIME
 from entities.orders_execution import OrderExecution
 from entities.region import Region
 from entities.working_hour import WorkingHour
+from waitress import serve
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'flag_is_here'
@@ -242,7 +244,8 @@ def get_courier_by_id(id):
 
 def main():
     db_session.global_init("/home/aleksandr/PycharmProjects/YandexSchoolProject/data_base/delivery_data_base.sqlite")
-    app.run(host='0.0.0.0', port=8080)
+    serve(app, host='0.0.0.0', port="8080")
+
 
 
 main()
