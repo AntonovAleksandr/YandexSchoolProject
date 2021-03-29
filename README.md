@@ -1,3 +1,6 @@
+# YandexSchoolProject
+Project to yandex school
+
 Сервис доставки магазина "Сласти от всех напастей".
 
 
