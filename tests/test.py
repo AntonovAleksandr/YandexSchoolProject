@@ -3,6 +3,7 @@ import datetime
 from pip._vendor import requests
 from pip._vendor.requests import post, get
 
+# 1) POST /couriers
 print(get('http://localhost:8080/'))
 
 print(post('http://localhost:8080/', json={
@@ -61,11 +62,14 @@ print(post('http://localhost:8080/couriers', json=
                ]
            }).json())
 
+
+# 2: PATCH /couriers/$courier_id
 print(requests.patch('http://localhost:8080/couriers/1', json=
 {
     'regions': [1, 2, 3]
 }).json())
 
+# 3: POST /orders
 print(requests.post('http://localhost:8080/orders', json=
 {
     "data": [
@@ -95,16 +99,19 @@ print(requests.post('http://localhost:8080/orders', json=
         }]
 }).json())
 
+# 4: POST /orders/assign
 print(requests.post('http://localhost:8080/orders/assign', json=
 {
     'courier_id': 2
 }).json())
 
-print(requests.patch('http://localhost:8080/couriers/1', json=
-{
-    'regions': [1, 2, 3]
-}).json())
 
+# print(requests.patch('http://localhost:8080/couriers/1', json=
+# {
+#     'regions': [1, 2, 3]
+# }).json())
+
+# 5: POST /orders/complete
 print(requests.post('http://localhost:8080/orders/complete', json=
 {
     "courier_id": 2,
@@ -112,5 +119,5 @@ print(requests.post('http://localhost:8080/orders/complete', json=
     "complete_time": "2021-03-28T16:20:15.089Z"
 }).json())
 
-
+# 6: GET /couriers/$courier_id
 print(requests.get('http://localhost:8080/couriers/2').json())
