@@ -1,7 +1,7 @@
 import datetime
 import sqlalchemy
 from sqlalchemy import orm
-from src.db_session import SqlAlchemyBase
+from db_session import SqlAlchemyBase
 
 
 class DeliveryHour(SqlAlchemyBase):

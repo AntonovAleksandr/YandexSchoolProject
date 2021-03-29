@@ -1,10 +1,10 @@
 import sqlalchemy
 from sqlalchemy import orm
-from src.db_session import SqlAlchemyBase
-from src.entities.orders_execution import OrderExecution
-from src.entities.region import Region
-from src.entities.working_hour import WorkingHour
-from src.properties import DEFAULT_COMPLETE_TIME, COEFFICIENT
+from db_session import SqlAlchemyBase
+from entities.orders_execution import OrderExecution
+from entities.region import Region
+from entities.working_hour import WorkingHour
+from properties import DEFAULT_COMPLETE_TIME, COEFFICIENT
 
 
 class Courier(SqlAlchemyBase):

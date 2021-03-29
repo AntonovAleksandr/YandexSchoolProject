@@ -4,12 +4,12 @@ from flask import Flask, request
 import db_session
 from entities.courier import Courier
 from entities.delivery_hour import DeliveryHour
-from entities.orders_execution import OrderExecution
-from entities.region import Region
 from entities.order import Order
-from entities.working_hour import WorkingHour
 from additional_func import make_resp, dict_has_keys, keys_is_has_dict_keys, is_time_in_times
 from properties import WEIGHT,  DEFAULT_COMPLETE_TIME
+from entities.orders_execution import OrderExecution
+from entities.region import Region
+from entities.working_hour import WorkingHour
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'flag_is_here'
@@ -241,7 +241,7 @@ def get_courier_by_id(id):
 
 
 def main():
-    db_session.global_init("/src/data_base/delivery_data_base.sqlite")
+    db_session.global_init("/home/aleksandr/PycharmProjects/YandexSchoolProject/data_base/delivery_data_base.sqlite")
     app.run(host='0.0.0.0', port=8080)
 
 

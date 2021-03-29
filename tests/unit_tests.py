@@ -1,7 +1,7 @@
 import datetime
 import unittest
 import requests
-from src import db_session
+import db_session
 
 path_to_server = "127.0.0.1:5002"
 db_session.global_init("/src/data_base/delivery_data_base.sqlite")

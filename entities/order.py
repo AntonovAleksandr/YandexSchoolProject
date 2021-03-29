@@ -1,6 +1,6 @@
 import sqlalchemy
 from sqlalchemy import orm
-from src.db_session import SqlAlchemyBase
+from db_session import SqlAlchemyBase
 from .delivery_hour import DeliveryHour
 
 

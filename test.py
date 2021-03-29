@@ -3,12 +3,12 @@ import datetime
 from pip._vendor import requests
 from pip._vendor.requests import post, get
 
-print(get('http://localhost:5002/'))
-print(post('http://localhost:5002/', json={
+print(get('http://localhost:8080/'))
+print(post('http://localhost:8080/', json={
     'msg': 'asdfghyrtedfx'
 }))
 
-print(post('http://localhost:5002/couriers', json=
+print(post('http://localhost:8080/couriers', json=
            {
                "data": [
                    {
@@ -33,7 +33,7 @@ print(post('http://localhost:5002/couriers', json=
                ]
            }).json())
 
-print(post('http://localhost:5002/couriers', json=
+print(post('http://localhost:8080/couriers', json=
            {
                "data": [
                    {
@@ -60,12 +60,12 @@ print(post('http://localhost:5002/couriers', json=
                ]
            }).json())
 
-print(requests.patch('http://localhost:5002/couriers/1', json=
+print(requests.patch('http://localhost:8080/couriers/1', json=
 {
     'regions': [1, 2, 3]
 }).json())
 
-print(requests.post('http://localhost:5002/orders', json=
+print(requests.post('http://localhost:8080/orders', json=
 {
     "data": [
         {
@@ -94,22 +94,22 @@ print(requests.post('http://localhost:5002/orders', json=
         }]
 }).json())
 
-print(requests.post('http://localhost:5002/orders/assign', json=
+print(requests.post('http://localhost:8080/orders/assign', json=
 {
     'courier_id': 2
 }).json())
 
-# print(requests.patch('http://localhost:5002/couriers/1', json=
-# {
-#     'regions': [1, 2, 3]
-# }).json())
-#
-# print(requests.post('http://localhost:5002/orders/complete', json=
-# {
-#     "courier_id": 2,
-#     "order_id": 3,
-#     "complete_time": "2021-03-28T16:20:15.089Z"
-# }).json())
+print(requests.patch('http://localhost:8080/couriers/1', json=
+{
+    'regions': [1, 2, 3]
+}).json())
+
+print(requests.post('http://localhost:8080/orders/complete', json=
+{
+    "courier_id": 2,
+    "order_id": 3,
+    "complete_time": "2021-03-28T16:20:15.089Z"
+}).json())
 
 
-# print(requests.get('http://localhost:5002/couriers/2').json())
+print(requests.get('http://localhost:8080/couriers/2').json())

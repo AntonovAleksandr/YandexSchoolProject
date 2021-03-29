@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy import orm
-from src.db_session import SqlAlchemyBase
-from src.properties import DEFAULT_COMPLETE_TIME
+from db_session import SqlAlchemyBase
+from properties import DEFAULT_COMPLETE_TIME
 
 
 class OrderExecution(SqlAlchemyBase):
