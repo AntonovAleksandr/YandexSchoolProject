@@ -4,6 +4,7 @@ from pip._vendor import requests
 from pip._vendor.requests import post, get
 
 print(get('http://localhost:8080/'))
+
 print(post('http://localhost:8080/', json={
     'msg': 'asdfghyrtedfx'
 }))

@@ -6,10 +6,11 @@ from entities.courier import Courier
 from entities.delivery_hour import DeliveryHour
 from entities.order import Order
 from additional_func import make_resp, dict_has_keys, keys_is_has_dict_keys, is_time_in_times
-from properties import WEIGHT,  DEFAULT_COMPLETE_TIME
+from properties import WEIGHT, DEFAULT_COMPLETE_TIME
 from entities.orders_execution import OrderExecution
 from entities.region import Region
 from entities.working_hour import WorkingHour
+from waitress import serve
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'flag_is_here'
@@ -191,10 +192,11 @@ def post_order_assign():
                 if i.complete_time == DEFAULT_COMPLETE_TIME and i.assign_time > assign_time:
                     assign_time = i.assign_time
             return make_resp(
-                {"orders": [{"id": i.id} for i in orders], "assign_time": assign_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")}, 200)
+                {"orders": [{"id": i.id} for i in orders],
+                 "assign_time": assign_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")}, 200)
         else:
             return make_resp({
-                    "orders": [{"id": i.id} for i in orders]}, 200)
+                "orders": [{"id": i.id} for i in orders]}, 200)
     else:
         return make_resp('', 400)
 
@@ -242,7 +244,11 @@ def get_courier_by_id(id):
 
 def main():
     db_session.global_init("/home/aleksandr/PycharmProjects/YandexSchoolProject/data_base/delivery_data_base.sqlite")
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port="8080")
 
+# For virtual machine
+# serve(app, host='0.0.0.0', port="8080")
+# For local machine
+# app.run(host='0.0.0.0', port="8080")
 
 main()
